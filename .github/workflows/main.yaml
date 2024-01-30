@@ -20,7 +20,6 @@ jobs:
         with:
           repository: percenuage/action
           persist-credentials: false
-          token: ${{ secrets.GH_PAT }}
 
       - name: ls
         run: |
@@ -30,4 +29,10 @@ jobs:
           ls -la
           git add *
           git commit -m "add yolo"
-          git push origin
+          #git push origin
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GH_PAT }}
+          branch: master
