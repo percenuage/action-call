@@ -9,8 +9,16 @@ jobs:
     name: Echo
     runs-on: ubuntu-22.04
     permissions:
-      contents: read
-#      id-token: write
+      contents: write
+      id-token: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Checkout remote repository
+        uses: actions/checkout@v4
+        with:
+          repository: percenuage/action
+
+      - name: ls
+        run: ls -la
