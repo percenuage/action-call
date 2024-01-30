@@ -1,0 +1,16 @@
+name: Main
+
+on:
+  workflow_dispatch:
+  push: [master]
+
+jobs:
+  echo:
+    name: Echo
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+#      id-token: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
